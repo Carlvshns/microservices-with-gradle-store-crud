@@ -5,13 +5,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import dev.carlvs.shopping.imports.Product;
 
-@FeignClient(name = "product")
-@RequestMapping(value = "/products")
+@FeignClient(name = "product", fallback = ProductHystrixFallbackFactory.class)
 public interface ProductClient {
     
     @GetMapping(path = "/{id}")
