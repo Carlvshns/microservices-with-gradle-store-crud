@@ -20,7 +20,7 @@ public class Customer implements Serializable {
     private Long id;
 
     @NotEmpty(message = "The field 'numberID' cannot be empty")
-    @Size( min = 8 , max = 8, message = "El tamaño del número de documento es 8")
+    @Size( min = 8 , max = 8, message = "Size max is 8 characters")
     @Column(name = "number_id" , unique = true ,length = 8, nullable = false)
     private String numberID;
 
